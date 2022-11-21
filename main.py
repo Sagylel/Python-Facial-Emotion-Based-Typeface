@@ -9,7 +9,7 @@ from keras.utils import img_to_array
 import cv2
 import numpy as np
 import math
-#endregion aaaaa
+#endregion
 
 #region Properties
 show_cam = True     #open webcam for debug
