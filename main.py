@@ -13,7 +13,7 @@ import math
 
 #region Properties
 show_cam = True     #open webcam for debug
-text_max_size = 200
+text_max_size = 300
 text_max_alph = 1
 #endregion
 
@@ -31,7 +31,7 @@ def main():
     text_alph = 0
 
     emotion_value = 0
-    angry_value_red = 0
+    angry_value_red = 5
     face_distance = 0
 
     face_classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
@@ -39,10 +39,10 @@ def main():
 
     class_labels = ['Angry', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
-    cap = cv2.VideoCapture(0)
+    cap = cv2.VideoCapture(1)
 
-    WIDTH = 1920
-    HEIGHT = 1080
+    WIDTH = 1280
+    HEIGHT = 720
 
     CAM_WIDTH = 0
     CAM_HEIGHT = 0
@@ -141,7 +141,7 @@ def main():
             face_distance = CAM_HEIGHT - (faces[0][2] * 1.5)
 
         # check if face is angry then make text go red
-        if (angry_value > .3):
+        if (angry_value > .3 or sad_value > .4):
             angry_value_red = lerp(angry_value_red, 1, .15)
         else:
             if (angry_value_red > .05):
