@@ -39,7 +39,7 @@ def main():
 
     class_labels = ['Angry', 'Happy', 'Neutral', 'Sad', 'Surprise']
 
-    cap = cv2.VideoCapture(1)
+    cap = cv2.VideoCapture(0)
 
     WIDTH = 1280
     HEIGHT = 720
@@ -64,7 +64,7 @@ def main():
     # --------------------------------------------------------
     # endregion
 
-    #set up chrome webdriver
+    #set up chrome webdriver 
     options = Options()
     options.add_argument("start-maximized")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
